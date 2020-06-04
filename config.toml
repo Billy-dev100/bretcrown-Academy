@@ -1,0 +1,18 @@
+baseurl = "https://bretcrown.com"
+description = ""
+enableGitInfo = true
+enableRobotsTXT = true
+paginate = 9
+title = "Title"
+[blackfriday]
+fractions = false
+[params]
+author = "Neil"
+email = "admin@bretcrown.com"
+ga_analytics = "UA-11790730-2"
+ga_verify = "ZaNNn0hSVhEblnb4DBJ2Fvx6ZH3Baoa6zSkGmFkDqrU"
+image = "random.jpg"
+logo = "logo.png"
+url = "https://bretcrown.com"
+[taxonomies]
+tag = "tags"

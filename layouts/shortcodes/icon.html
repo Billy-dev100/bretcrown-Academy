@@ -1,0 +1,5 @@
+{{ $src := .Get 0 }}
+{{ $alt := .Get 1 }}
+{{ $class := .Get 2 }}
+
+<img src = '{{ $src }}' alt = '{{ $alt }}' class = 'icon {{ with $class }}{{ . }}{{ end }}'>

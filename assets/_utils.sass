@@ -1,0 +1,175 @@
+.wrap
+  max-width: 1280px
+  &, &_min 
+    padding: 0 25px
+    margin: 0 auto
+  
+  &_min 
+    max-width: 960px
+
+.muted
+  background: #f5f5f5
+
+.bright 
+  color: $bright
+
+.pale 
+  color: lighten($dark, 33%)
+
+.mute 
+  color: darken($light, 33%)
+
+@for $i from 1 through 2 
+  $size: $i * 1.5rem
+  $x-size: $size * 0.5 
+  .pt-#{$i} 
+    padding-top: $size
+  
+  .pb-#{$i} 
+    padding-bottom: $size
+  
+  .mt-#{$i} 
+    margin-top: $size
+  
+  .mb-#{$i} 
+    margin-bottom: $size
+  
+.flex
+  &, &_column
+    display: flex
+    flex-direction: column
+    align-items: center
+  &_column
+    justify-content: center
+
+.shadow 
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.17)
+
+%grid
+  display: grid
+  grid-template-columns: 1fr
+
+[class*='grid-']
+  grid-gap: 2rem 4rem
+
+.grid-2, .grid-3, .grid-4, .grid-auto, .grid-inverse
+  @extend %grid
+
+@media screen and (min-width: 42rem)
+  .grid-auto
+    grid-template-columns: 1fr 3fr
+  .grid-inverse
+    grid-template-columns: 3fr 1fr
+  .grid-2
+    grid-template-columns: 1fr 1fr
+  .grid-3 
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr))
+  .grid-4 
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr))
+  
+$emojis: ( "calendar": "\1F4C5", "smile": "\1F642", "sad": "\1F61E")
+
+@each $emoji, $code in $emojis 
+  .em_#{$emoji}::after 
+    content: $code
+  
+[class^=em_] 
+  display: inline-grid
+  justify-self: center
+  background: transparent
+
+[class^=em_]::after 
+  padding-left: 15px
+  padding-right: 15px
+
+@for $i from 1 through 5 
+  $font : $i * 20px 
+  .em-#{$i} 
+    font-size: $font
+
+.card
+  background-color: $shade
+  color: $light
+  padding: 1.5rem
+  &s
+    grid-gap: 0
+
+@for $i from 1 through 4 
+  .card:nth-child(#{$i}) 
+    background-color: darken($shade,$i*5%)
+
+@media screen and (min-width: 667px)
+  @for $i from 2 through 4 
+    .img-#{25 * $i}
+      width: $i * 25%
+
+$sites: ("facebook": #325c94, "instagram": #fb3958, "twitter": #00abdc, "linkedin": #007bb6, "whatsapp": #25d366, "youtube": #D8362A)
+
+@each $item, $color in $sites 
+  .#{$item} 
+    background: $color
+
+ 
+.overflow 
+  overflow-x: auto
+
+.breadcrumb 
+  display: inline-block
+  background-color: $shade
+  padding: 0.5rem 1.25rem
+  font-weight: 500
+  font-size: 0.8rem
+  text-decoration: none !important
+  text-overflow: clip
+  white-space: nowrap
+  color: inherit !important
+  &:hover 
+    opacity: 1
+  
+  &s 
+    list-style: none !important
+    padding: 0 !important
+    display: flex
+    max-width: 100%
+    overflow: hidden
+  
+  &_item 
+    display: inline-block
+    padding: 0 !important
+  
+  &_item:nth-child(2n) 
+    opacity: 0.8
+  
+  &_item:nth-child(3n) 
+    opacity: 0.6
+  
+.underline 
+  position: relative
+  font-size: 1.75rem
+  font-weight: 400
+  &::after 
+    background: $shade
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    height: 2px
+    width: 50px
+
+.avatar
+  display: block
+  margin: 1rem 0
+  max-width: 15rem
+  border-radius: 50%
+
+.center
+  text-align: center
+
+.bg
+  background-color: $light
+  &_haze
+    background-color: $haze
+
+.icon
+  width: 5rem
+  display: inline-block

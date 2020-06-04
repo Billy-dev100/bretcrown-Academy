@@ -1,0 +1,15 @@
+<div class = 'share mb-1'>
+  <a class = 'share_item facebook' href = 'https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}' title = 'Share on Facebook'
+    >
+    <img src = '/icons/facebook.svg' alt = 'share'>
+  </a>
+  <a class = 'share_item twitter' href = 'https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}' title = 'Share on Twitter'
+  >
+    <img src = '/icons/twitter.svg' alt = 'share'>
+  </a>
+
+  <a rel = 'nofollow' class = 'share_item whatsapp' href="whatsapp://send?text={{ .Permalink }}" data-action="share/whatsapp/share" title="Share on Whatsapp"><img src ='/icons/whatsapp.svg' alt = 'icon'/></a>
+  <a class = 'share_item copy' href = '{{ .Permalink }}' title =  'Copy Link'>
+    <img src ='/icons/copy.svg' alt = 'icon'/>
+  </a>
+</div>

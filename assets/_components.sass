@@ -1,0 +1,622 @@
+.color 
+  color: $bright
+
+.article
+  background: $light
+  box-shadow: 0 0 15px rgba(0,0,0,0.17)
+  overflow: hidden
+  
+  &_excerpt
+    transition: height 0.5s, opacity 0.5s
+    &:not(.visible) 
+      height: 0
+      opacity: 0
+  
+  &_excerpt,
+  &_meta 
+    transform-origin: bottom
+  
+  &_meta
+    padding: 10px 20px 20px
+    background: $light
+    position: relative
+    z-index: 2
+    transition: margin-top 0.5s
+    &.center_y
+      transform-origin: center
+      transition: padding $ease 0.5s, margin $ease 0.5s
+      display: flex
+      flex-direction: column
+      justify-content: center
+      @media screen and (min-width: 769px) 
+        padding-left: 0
+  
+  &_thumb
+    display: grid
+    position: relative
+    z-index: 0
+    overflow: hidden
+    background-size: cover
+    background-position: center top
+    min-height: 15rem
+    transition: opacity 0.5s $ease 
+    &:not(.uniq) 
+      height: 12.5rem
+    
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      bottom: 0
+      z-index: 1
+      background: $dark
+      opacity: 0
+    
+  
+  &:hover &_thumb
+    transform: 0.8
+    
+    &::after
+      opacity: 0.5
+    
+  
+  &:hover &_excerpt:not(.visible)
+    height: 75px 
+    opacity: 1
+  
+  &:hover &_meta
+    &:not(.center_y) 
+      margin-top: -75px
+    
+    @media screen and (min-width: 769px) 
+      &.center_y
+        margin-left: -15px
+        padding-right: 35px
+      
+  &:hover
+    box-shadow: 0 0 90px rgba(0,0,0,0.27)
+    a
+      color: initial !important
+    
+  &_hidden 
+    display: none
+  
+.post 
+  &_body 
+    img 
+      width: 100%
+  &_inner 
+    a:not(.btn)
+      color: $shade
+      transition: opacity 0.3s
+      &:hover 
+        opacity: 0.8
+        text-decoration: underline
+      
+.blog
+  // @include viewport
+  padding: 25px
+
+.thumb_alt 
+  color: #888
+  font-style: italic
+  font-size: 15px
+  margin-bottom: 8px
+  border-bottom: 1px solid #f0f0f0
+
+.form
+  display: flex
+  flex-direction: column
+  max-width: 540px
+  margin: 0
+  &_input 
+    display: block
+    width: 100%
+    padding: 10px 12.5px
+    font-size: 16px
+    outline: 0
+    line-height: 1.6
+    border: none
+    border-radius: 6px
+    transition: box-shadow $ease .15s
+    -moz-appearance: none
+    box-shadow: 0 0.25rem 1rem rgba($dark, 0.15)
+    -webkit-appearance: none
+    appearance: none
+    background-color: $light
+    &:focus 
+      box-shadow: 0 0.25rem 1rem rgba($dark, 0.15), 0 1rem 0.5rem -0.15rem rgba($dark, 0.15)
+    
+  > &_input:first-of-type 
+    margin-top: 0.75rem
+  
+  &_country 
+    color: #888
+  
+  &_label
+    // display: none
+  
+  .h2 
+    margin-bottom: -1rem
+  
+.btn 
+  background-color: $shade
+  border: 1px solid $shade
+  display: inline-block
+  min-width: 12.5rem
+  color: $light !important
+  cursor: pointer
+  font-size: 1rem
+  margin: 15px 0
+  outline: none
+  padding: 0.75rem 1rem
+  text-transform: uppercase
+  border-radius: 30px
+  line-height: 1.25
+  opacity: 1
+  text-align: center
+  transition: opacity 0.3s $ease, box-shadow 0.3s $ease
+  text-decoration: none !important
+  &:hover 
+    opacity: 0.96
+    color: $shade !important
+    background: transparent
+    border: 1px solid $shade
+    box-shadow: 0 0 30px rgba(0,0,0,0.17)
+  &_light
+    background-color: $light
+    color: $dark !important
+    &:hover
+      background-color: $dark
+      color: $light !important
+  &_auto 
+    margin-left: auto
+    margin-right: auto
+  
+.error 
+  min-height: 75vh
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+
+.footer
+  li
+    list-style-type: none
+  
+  h3 
+    margin-bottom: 0.5rem
+    color: $light
+  
+  h4 
+    margin: 0
+    color: inherit
+  
+  &_links 
+    display: grid
+    grid-gap: 1rem
+    a 
+      display: flex
+      align-items: center
+
+.social 
+  padding: 0
+  &_item 
+    border: 1px solid transparent
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    width: 2rem
+    height: 2rem
+    margin: 0.33rem
+    img 
+      width: 18px
+    
+    &:first-child 
+      overflow: hidden
+      img 
+        transform: scale(1.5)
+        transform-origin: 50% 50%
+      
+.sidebar 
+  .tour_content p 
+    display: none
+  
+  &_inner 
+    background: $light
+    padding: 15px 25px
+    border-radius: 1.5rem
+
+.tour
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  margin-top: 25px
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.17)
+  transition: opacity 0.3s $ease
+  background: $light
+  border-radius: 1rem
+  overflow: hidden
+  width: 100%
+  max-width: 450px
+  .hover 
+    position: relative
+    z-index: 99
+    opacity: 0
+    transition: opacity 0.3s ease-in
+    transform: translateY(-0.75rem)
+    margin-top: -4rem
+    border-radius: 0.5rem
+    padding: 0 1rem
+    max-width: 11.5rem
+    background-color: rgba($light, 0.6)
+  
+  &:hover .hover 
+    opacity: 1
+  
+  &_body 
+    ol 
+      background: #fff
+      margin: 1rem auto
+      list-style-type: none
+      padding: 0
+      li 
+        list-style-type: none
+        background: $shade
+        color: $dark
+        padding: 1rem
+      
+      li:nth-child(even) 
+          background: transparent
+      
+  &_content
+    padding: 0.8rem 1rem
+  
+  &_image
+    width: 100%
+    position: relative
+    padding: 0
+    line-height: 0
+    min-height: 25vh
+    background: $dark
+    background-size: cover
+    background-position: center
+    &::after
+      background: transparent
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      width: 100%
+      z-index: 2
+      cursor: pointer
+      transition: background 0.5s
+    
+  &:hover 
+    box-shadow: 0 0 90px rgba(0, 0, 0, 0.2)
+  
+  &:hover &_image::after
+    background: rgba(0, 30, 0, 0.2)
+  
+  &_more 
+    padding: 0.5rem 1rem
+    background-color: $shade
+    margin: -0.5rem 1rem 1.5rem
+    display: inline-flex
+    justify-content: center
+    width: 10rem
+    font-weight: 500
+
+.video
+  &_embed 
+    position: relative
+    padding-bottom: 56.25%
+    padding-top: 30px 
+    height: 0
+    overflow: hidden
+    margin: 25px 0
+    iframe,
+    object,
+    embed 
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+    
+
+.dot 
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+  width: 27px
+  height: 27px
+  background: transparent
+  cursor: pointer
+  border-radius: 50%
+  &::after 
+    content: ''
+    background: darken($mute, 20%)
+    width: 9px
+    height: 9px
+    border-radius: 50%
+    transition: all 1s ease-in
+  
+  &s
+    position: absolute
+    bottom: 25px
+    width: 100%
+    display: flex
+    align-items: center
+    z-index: 11
+  
+  &_active
+    &::after 
+      background: $mute
+      width: 12px
+      height: 12px
+    
+.footer 
+  img 
+    width: 1rem
+    margin-right: 0.4rem
+    display: inline-block
+
+.slide
+  background: transparent
+  display: flex
+  align-items: center
+  min-height: 480px
+  color: $mute
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 10
+  transition: transform 0.5s $ease
+  transform: translateY(-100vh)
+  width: 100%
+  background-size: cover
+  background-position: center center
+  &::after
+    position: absolute
+    content: ""
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    background-color: rgba($dark, 0.6)
+    z-index: 9
+  h1
+    color: $light
+    text-align: center
+    padding: 25px
+  
+  img
+    width: 100%
+  
+  &s 
+    display: block
+    width: 100%
+    overflow: hidden
+    position: relative
+    min-height: 72vh
+    &:focus
+      outline: none
+    
+    &_container
+      background: $dark
+      width: 100%
+      position: relative
+      min-height: 72vh
+      &:hover .slide_left,
+      &:hover .slide_right 
+        opacity: 1
+      
+  &_rest
+    z-index: 11
+
+  &_inner
+    transform: translateY(180vh)
+    transition: 1s transform $ease, 1s opacity $ease 
+    color: $light
+    width: 100%
+    position: relative
+    z-index: 22
+    padding: 3rem 0
+    opacity: 0
+
+  &_active
+    z-index: 11
+    transform: translateY(0)
+    mix-blend-mode: lighten
+
+  &_active &_inner
+    transform: translateY(0)
+    opacity: 1
+  &_left,&_right
+    cursor: pointer
+    position: absolute
+    top: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    background: transparent
+    z-index: 12
+    color: $mute
+    font-size: 2rem
+    width: 2.5rem
+    opacity: 0
+    transition: opacity 0.3s ease-in-out
+  
+  &_left
+    left: 15px
+  
+  &_right
+    right: 15px
+  
+.contact 
+  &_icon 
+    width: 1rem
+    margin-right: 0.8rem
+    display: inline-block
+  
+  &_decorate 
+    display: flex
+    align-items: center
+    width: 100%
+  
+.panel 
+  padding: 1.5rem 0
+  width: 100%
+  position: absolute
+  top: 0
+  right: 100%
+  opacity: 0
+  transition: right 1s cubic-bezier(.19,1,.22,1)
+  &_active 
+    position: relative
+    right: 0
+    opacity: 1
+  
+  &_end, &_control 
+    width: 1.25rem
+  
+  &_end 
+    opacity: 0.2
+  
+  &_control 
+    cursor: pointer
+    &s 
+      width: 3.6rem
+      display: flex
+      justify-content: space-between
+    
+  &s 
+    position: relative
+    overflow-x: hidden
+  
+  &_head 
+    display: flex
+    justify-content: space-between
+    width: 100%
+    align-items: center
+  
+  &_quote 
+    width: 100%
+    &s 
+      background: #fff
+      border-radius: 50%
+      width: 4rem
+      height: 4rem
+      padding: 1.1rem
+      margin: 1rem 0
+    
+  
+  &_title 
+    margin-top: 0.25rem
+  
+
+.badge 
+  display: grid
+  grid-template-columns: 3fr 4fr
+  margin: 1.5rem 0 2.25rem
+  box-shadow: -20px 25px 50px 0 rgba(0,0,0,.12)
+  @media screen and (max-width: 768px) 
+    grid-template-columns: 1fr
+  
+  &_avatar 
+    padding: 0
+    &, img 
+      height: 100%
+    
+    img 
+      width: 100%
+      margin: 0
+    
+  
+  &_content 
+    color: $light
+    background: $dark
+    padding: 1.5rem
+  
+  &_message 
+    position: relative
+    margin-bottom: 1.5rem
+  
+  h2, h3, h5 
+    color: inherit
+
+.banner 
+  background-color: $shade
+  color: $light
+  padding: 1.5rem
+
+.tag 
+  display: inline-block
+  padding: 0.25rem 1.5rem
+  position: relative
+  margin: 0 0 0 -0.25rem
+  font-size: 0.9rem
+  text-transform: uppercase
+  &::after 
+    content: ''
+    width: 1px
+    top: 0
+    right: 0
+    bottom: 0
+    position: absolute
+    transform-origin: 0% 0%
+    transform: rotate(-30deg)
+  
+  &:nth-child(2n) 
+    border-top: 1px solid $bright !important
+    color: $bright
+    &::after 
+      background-color: $bright
+    
+  
+  &, &:nth-child(3n) 
+    border-top: 1px solid $shade !important
+    color: $shade
+    &::after 
+      background-color: $shade
+    
+.link_show a 
+  color: $shade
+  text-decoration: underline
+
+.modal 
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  width: 100%
+  z-index: 99
+  background: #fff
+  &_icon 
+    width: 4rem
+
+.column
+  &_bg
+    background-color: $haze
+    padding-bottom: 1rem
+    > *:not(img)
+      padding-left: 1rem
+      padding-right: 1rem
+    .avatar
+      margin-bottom: 1rem
+      margin-top: 1.5rem
+      margin-left: auto
+      margin-right: auto

@@ -1,0 +1,71 @@
+.pager
+  display: flex
+  justify-content: center
+  align-content: center
+  margin: 0.25rem auto 1.25rem auto
+  &, &_item
+    justify-content: center
+    align-items: center
+  
+  &_item
+    height: 36px
+    width: 36px
+    display: inline-flex
+    margin-left: 5px
+    margin-right: 5px
+    background: $shade
+    color: $light
+    border-radius: 50%
+    margin-bottom: 1rem 
+    &:hover
+      opacity: 0.5
+    
+  
+  &_prev, &_next
+    background: transparent
+  
+  &_active
+    opacity: 0.5
+  
+.share
+  display: flex
+  align-items: center
+  position: relative
+  height: 44px
+  img
+    width: 40%
+  
+  &_copy
+    position: absolute
+    padding: 8px 15px
+    border-radius: 5px
+    background: $dark
+    color: $light
+    top: -50px
+    width: 120px
+    z-index: 5
+    left: 125px
+    animation: blink 3s ease-in forwards
+    
+  &_item
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    width: 2rem
+    height: 2rem
+    transform-origin: 50% 50%
+    margin: 10px 7.5px 10px 0
+    background: $pale
+    border-radius: 50%
+    color: $light
+    font-size: 1.5rem
+  
+  &_toggle
+    cursor: pointer
+    z-index: 1
+    left: 12px
+    transform: scale(1.2)
+    margin-left: 0
+    &d
+      animation: wobly 1s ease-out forwards
+    

@@ -1,0 +1,5 @@
+{{ $class := .Get 0 }}
+{{ $full := .Get 1 }}
+<section class = '{{ with $full }}{{ else }}wrap_min{{ end }} pt-2 pb-2 {{ $class }}'>
+  {{ .Inner | markdownify }}
+</section>

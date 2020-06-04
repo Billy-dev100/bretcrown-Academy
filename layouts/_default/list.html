@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <div class = 'wrap pt-1'>
+  </div>
+  <div class = 'grid-3 wrap pb-2'>
+    {{ range (.Paginate .Pages).Pages }}
+      {{ partial "tour.html" . }}
+    {{ end }}
+  </div>
+  {{ partial "pager.html" . }}
+{{ end }}

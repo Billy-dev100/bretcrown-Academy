@@ -1,0 +1,4 @@
+{{ define "main" }}
+  {{- partial "slides.html" . }}
+  {{ .Content | markdownify }}
+{{ end }}

@@ -1,0 +1,13 @@
+{{ $title := .Get 0 }}
+{{ $link := .Get 1 }}
+{{ $label := .Get 2 }}
+<div class = 'banner'>
+  <div class = 'banner_inner wrap_min grid-2'>
+    <section>
+      <h3>{{ $title }}</h3>
+    </section>
+    <div>
+      <a href = '{{ $link }}' class = 'btn btn_light'>{{ $label }}</a>
+    </div>
+  </div>
+</div>

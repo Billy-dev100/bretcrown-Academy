@@ -1,0 +1,24 @@
+---
+label: News Article
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: date
+  label: date
+- type: field_group
+  name: image
+  label: image
+  fields:
+  - type: file
+    name: name
+    label: name
+  - type: text
+    name: description
+    label: description
+- name: draft
+  type: boolean
+  label: draft
+  description: publish or unpublished

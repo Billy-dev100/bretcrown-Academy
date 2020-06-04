@@ -1,0 +1,21 @@
+{{- $.Scratch.Add "path" .Site.BaseURL -}}
+<ol vocab="https://schema.org/" typeof = 'BreadcrumbList' class = 'breadcrumbs' id="breadcrumbs">
+  <li property="itemListElement" typeof="ListItem" class = 'breadcrumb_item'>
+    <a property = 'item' typeof="WebPage" href="/" class = 'breadcrumb' id="{{ anchorize .Site.Title }}">
+      <span property="name">{{ .Site.Title }}</span>
+    </a>
+    <meta property="position" content="1">
+  </li>
+  {{- range $index, $element := split .RelPermalink "/" -}}
+  {{- $.Scratch.Add "path" $element -}}
+  {{- if ne $element "" }}
+  <li property="itemListElement" typeof="ListItem" class = 'breadcrumb_item'>
+    <a property="item" typeof="WebPage" href="{{ $.Scratch.Get "path" }}" class = 'breadcrumb' id="{{ . }}">
+      <span property="name">{{ humanize (replace . "-" " ") }}</span>
+    </a>
+    <meta property="position" content="{{ add $index 1 }}">
+  </li>
+  {{- $.Scratch.Add "path" "/" -}}
+  {{- end -}}
+  {{- end -}}
+</ol>

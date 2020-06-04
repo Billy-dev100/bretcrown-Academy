@@ -1,0 +1,19 @@
+<header class = 'nav_wrap'>
+  <nav class = 'wrap nav'>
+    <a href = '/' class = 'nav_logo nav_xs'><img  src = '/images/bretcrown-logo.png' alt = '{{ .Site.Title }}'></a>
+    <ul class = 'nav_menu'>
+      {{- range .Site.Data.menu }}
+      <li class = 'nav_parent'>
+        <a href = '{{ .url }}' class = 'nav_item'>{{ .link }}</a>
+        {{- with .submenu }}
+        <div class = 'nav_sub'>
+          {{- range . }}
+          <a href = '{{ .url }}' class = 'nav_child nav_item'>{{ .link }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+  </nav>
+</header>

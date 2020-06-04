@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class = 'wrap_min pt-1 post'>
+    <article class = 'blog__posts mt-1'>
+      <div class = 'editor'>
+        <strong><time>{{ dateFormat "02. January 2006" .Date }}</time></strong>
+        <h1>{{ .Title }}</h1>
+        {{ partial "share.html" . }}
+      </div>
+      <div class = 'post_body mb-1'>
+        <div class = 'post_inner mb-1'>
+          <img src = '/images/{{ .Params.image.name }}' alt = '{{ .Params.image.description }}' class = 'blog__thumb'>
+          {{ .Content }}
+        </div>
+        {{ partial "share.html" . }}
+      </div>
+    </article>
+    {{ partial "sidebar.html" . }}
+  </div>
+{{ end }}

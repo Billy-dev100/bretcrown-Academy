@@ -1,0 +1,4 @@
+{{ $context := . }}
+{{ with .Get "partial" }}
+  {{ partial . $context }}
+{{ end }}

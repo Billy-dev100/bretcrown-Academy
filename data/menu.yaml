@@ -1,0 +1,30 @@
+---
+- link: About Us
+  url: "/about-us/"
+  submenu:
+  - link: Mission
+    url: "/team/#ou-r-mission"
+  - link: Credentials
+    url: "/about-us/#credentials"
+  - link: The Bretcrown Trust
+    url: "/about-us/#the-bretcrown-trust"
+- link: The Problem
+  url: "/the-problem/"
+- link: The Solution
+  url: "/the-solution/"
+  submenu: []
+- link: Our Trading Tools
+  url: "/our-trading-tools/"
+  submenu:
+  - link: Spread Betting
+    url: "/spread-betting/"
+- link: Trading Strategies
+  url: "/trading-strategies/"
+  submenu: ''
+- link: Team
+  url: "/team/"
+  submenu: ''
+- link: Blog
+  url: "/blog/"
+- link: Contact
+  url: "/contact/"

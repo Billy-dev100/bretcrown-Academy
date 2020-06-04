@@ -1,0 +1,266 @@
+*
+  &,&::after,&::before
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    line-height: 1.6
+  
+html 
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+html, body 
+  overflow-x: hidden
+  scroll-behavior: smooth
+
+body
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: 100vh
+  font-size: 17px
+  font-family: $font
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  @media screen and (max-width: 991px)
+    background: $shade
+
+footer 
+  background: $dark
+  padding: 25px 0
+
+main 
+  flex: 1
+  position: relative
+  z-index: 99
+  @media screen and (max-width: 991px)
+    background-color: $light
+  ul
+    margin-left: 1rem
+  li 
+    padding: 0.5rem 0
+    // font-weight: 500
+    p 
+      padding: 0
+      line-height: inherit
+      &:not(:first-child) 
+        font-weight: 400
+    
+a
+  color: inherit
+  transition: opacity 0.3s
+  text-decoration: none
+  &:hover
+    opacity: 0.9
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 
+  padding: 0.3rem 0
+  font-weight: 600
+  line-height: 1.4
+  color: inherit
+  &::first-letter 
+    text-transform: uppercase
+
+h1 
+  font-size: 1.65rem
+
+h1, h2
+  margin: 0.67rem 0 0
+
+h2, .h2 
+  font-size: 1.5rem
+
+p 
+  line-height: 1.6
+  padding: 0.75rem 0
+  max-width: 960px
+  &::first-letter 
+    text-transform: uppercase
+  &::empty
+    display: none
+  
+
+ul, ol 
+  padding-left: 20px
+
+img 
+  border: 0
+  width: 100%
+  height: auto
+  max-width: 100%
+
+textarea 
+  resize: none
+
+label
+  font-weight: 500
+  display: inline-block
+  max-width: 100%
+  margin-bottom: 5px
+
+::selection 
+  color: initial 
+  background: transparent
+
+nav 
+  ul 
+    padding: 0
+  
+.pesapal 
+  opacity: 0.6
+  transition: opacity 0.3s ease-in-out
+  &:hover 
+    opacity: 1
+  
+.content 
+  a:not(.btn) 
+    text-decoration: underline
+    color: $shade
+
+blockquote 
+  font-size: 1.25rem
+
+
+th, td 
+  padding: 0.5rem
+  &:not(:first-child) 
+    padding-left: 1.5rem
+  
+
+thead 
+  background: $shade
+  font-weight: 500
+
+
+tbody 
+  tr 
+    &:nth-child(even) 
+      background-color: $light
+      box-shadow: 0 1rem 0.75rem -0.75rem rgba(0,0,0,0.07)
+    
+
+table 
+  text-transform: uppercase
+  margin: 1.5rem 0
+  width:  100%
+
+button 
+	outline: none
+	text-decoration: none
+
+b, em, strong 
+	font-weight: 500
+	color: $darker
+
+input 
+	-webkit-appearance: button
+	cursor:   pointer
+
+td,
+th 
+	padding: 0
+
+
+blockquote 
+	margin: 1.5rem 0 0.5rem
+	display: flex
+	font-style: italic
+	flex-flow: row wrap
+	align-items: center
+	padding: 1.2rem
+	border-left: 10px solid $shade
+	background: rgba(0,0,0,0.05)
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.1)
+	border-radius: 5px
+
+
+ul 
+	list-style: disc
+
+
+ol 
+	list-style: decimal
+
+
+select 
+	border: 1px solid #ccc
+
+input:focus,
+textarea:focus 
+	color: #111
+
+
+a:hover,
+a:active 
+	outline: 0
+
+
+.center 
+	margin-left:  auto
+	margin-right: auto
+
+
+@keyframes blink 
+	0% 
+		opacity: 1
+	
+	50% 
+		opacity: 0
+	
+	100% 
+		opacity: 1
+	
+.logo 
+	max-width: 160px
+	&, img 
+		height: 60px
+	
+.list-arrow li 
+	margin-bottom: 0
+
+.contact-info a 
+	color: #ccc
+
+.footer_menu 
+	text-align: right
+	margin:     0
+	li 
+		display: inline-block
+		margin-left: 10px
+		list-style:  none
+
+.text-center 
+	text-align: center
+
+footer p:not(.contact_decorate) 
+	color: #aaa !important
+
+@keyframes rotation 
+	0% 
+		transform: rotate(0deg)
+	
+	50% 
+		transform: rotate(180deg)
+	
+	100% 
+		transform: rotate(360deg)
+	
+#pesapalbtn 
+	background: transparent
+	border-radius: 3px
+	box-shadow: none
+	box-sizing: border-box
+	display: inline-block
+	width: 100px
+	img 
+		display: block
+		margin: 0 auto
+		width: 80%
+		padding: 0
+		background: #fff
+	

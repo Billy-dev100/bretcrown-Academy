@@ -1,0 +1,13 @@
+<div class = 'wrap_min pt-4 mt-2 mb-2'>
+  <div class = 'pt-1'>
+    {%- for post in site[page.kind] %}
+      {%- include article.html -%}
+      {%- if forloop.first -%}
+        <div class = 'grid-2'>
+      {%- endif -%}
+      {%- if forloop.last -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

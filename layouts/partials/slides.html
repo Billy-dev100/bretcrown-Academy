@@ -1,0 +1,18 @@
+<div class = 'slides_container'>
+  <div class = 'slides' tabindex = '0'>
+  {{ range $index, $slide := .Params.slides }}
+    <div class = 'slide slide_home {{ if eq $index 0 }}slide_active{{ end }}' style = 'background-image: url(/images/{{ $slide.image }})'>
+      <section class = 'slide_inner wrap'>
+        <h2>{{ $slide.title }}</h2>
+        <p>{{ $slide.description }}</p>
+        <a class = 'btn' href = '{{ $slide.link }}'>Read More</a>
+      </section>
+    </div>
+  {{ end }}
+  </div>
+  <div class = 'dots wrap'>
+  {{ range $index, $slide := .Params.slides }}
+    <div class = 'dot {{ if eq $index 0 }} dot_active {{ end }}'></div>
+  {{ end }}
+  </div>
+</div>

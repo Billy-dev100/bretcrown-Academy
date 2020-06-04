@@ -1,0 +1,22 @@
+{{- $size := (len (.Paginator 7).Pages) }}
+{{- range $index, $value := (.Paginator 7).Pages }}
+<article class = 'article mb-2'>
+  <a href = '{{ $value.URL }}' {{ if eq $index 0 }} class = 'grid-inverse' {{ end }}>
+    <figure class = 'article_thumb{{ if eq $index 0 }} uniq{{ end }}' style='background-image: url(/images/{{ $value.Params.image.name }})'>
+    </figure>
+    <div class = 'article_meta {{ if eq $index 0 }} center_y {{ end }}'>
+      <section class = 'huh'>
+        <h5 class = 'article_{{ $value.Params.category }} color'>{{ $value.Params.category }}</h5>
+        <h3>{{ $value.Title }}</h3>
+        <time>{{ dateFormat "02. January 2006" $value.Date }}</time>
+        <div class = 'article_excerpt {{ if eq $index 0 }} visible {{ end }}'>
+          <p>{{ $value.Summary | truncate 100 }}</p>
+        </div>
+      </section>
+    </div>
+  </a>
+</article>
+{{- if and (eq $index 0) (gt $size 1)  }}<div class = 'grid-2'>{{ end }}
+  {{- if and (eq $index (add $size -1)) (gt $size 1) }}</div>{{ end }}
+{{- end }}
+  

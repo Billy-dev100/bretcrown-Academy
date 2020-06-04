@@ -1,0 +1,197 @@
+.nav
+  align-items: center
+  justify-content: space-between
+  // text-transform: uppercase
+  &_header
+    position: absolute
+    z-index: 999
+    width: 100%
+    background: $light
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+
+  &, &_flex
+    display: flex
+
+  &_menu
+    list-style-type: none
+
+  &_logo
+    max-width: 11rem
+    padding: 0.5rem 0
+
+  &_item
+    padding: 0.25rem 0.5rem
+    font-size: 0.9rem
+    // font-weight: 500
+
+  &_toggle
+    display: none
+
+  &_top
+    background: $dark
+    color: $light
+    padding: 5px 0
+    font-size: 0.8rem
+    font-weight: 500
+    img
+      height: 30px
+
+  &_xs
+    display: none
+
+  &_scroll
+    @media screen and (min-width: 992px)
+      transform: translateY(-10rem)
+      transition: transform 1.5s $ease
+      will-change: transform
+
+  &_fixed
+    @media screen and (min-width: 992px)
+      position: fixed !important
+      z-index: 101
+      left: 0
+      right: 0
+      top: 0
+      transform: translateY(0)
+
+.open
+  transform: translateX(17.5rem) translateZ(-7.5rem)
+  max-height: 125vh
+  overflow: hidden
+  z-index: 6
+  box-shadow: 0 0 30px rgba($dark, 0.17)
+  cursor: pointer
+
+@media screen and (max-width: 991px)
+  .nav
+    position: absolute
+    z-index: 1
+    left: 0
+    padding-top: 1.5rem
+    max-width: 16.5rem
+    &_menu
+      display: flex
+      opacity: 0
+      z-index: -1
+      padding: 3rem 0
+
+    &, &_menu
+      flex-direction: column
+      align-items: flex-start
+
+    &_fancy
+      position: relative
+      z-index: 1
+      opacity: 1
+      &::after, &::before
+        opacity: 0.5
+        position: absolute
+        content: ""
+        top: 0
+        left: 0
+        right: 0
+        height: 100vh
+        background: $light
+
+      &::after
+        transform: translateX(14rem) translateY(-0.5rem)
+        z-index: 3
+
+      &::before
+        transform: translateX(15rem) translateY(-1rem)
+        z-index: 2
+
+    &_item
+      padding: 0.75rem 0
+      display: block
+      width: 100%
+      font-size: 0.96rem
+      color: $mute
+      border-bottom: 1px dotted rgba($light, 0.05)
+
+    &_parent
+      display: block
+      width: 100%
+
+    &_sub
+      margin-left: 1rem
+
+    &_toggle
+      background: $light
+      align-items: center
+      display: grid
+      font-size: 1.1rem
+      grid-gap: 1rem
+      grid-template-columns: 2rem 1fr
+      text-transform: uppercase
+      padding: 0.2rem 1.5rem
+      z-index: 9
+      position: relative
+      box-shadow: 0 0 120px rgba($dark, 0.17)
+      cursor: pointer
+      svg
+        width: 1.5rem
+        height: 1.5rem
+
+@media screen and (min-width: 992px)
+  .nav
+    &_wrap
+      background: $light
+      box-shadow: 0 0 60px rgba($dark, 0.17)
+      position: relative
+
+    &_flex
+      justify-content: space-between
+      align-items: center
+
+    &_parent
+      position: relative
+
+    &_parent > &_item
+      padding: 1.25rem 0.5rem
+
+    &_sub
+      position: absolute
+      z-index: 20
+      border-radius: 0.5rem
+      top: 2rem
+      transition: height 0.3s ease-in-out
+      height: 0
+      overflow: hidden
+      padding: 0.96rem 0 0
+      background: transparent
+
+    &_sub &_item
+      background: $light
+      position: relative
+      z-index: 5
+      display: block
+      padding: 0.75rem 0.5rem
+      border-bottom: 1px solid $mute
+      transition: background 0.3s ease-out
+      &:last-of-type
+        border-bottom: none
+
+      &:hover
+        background: $shade
+        color: $light
+        opacity: 1 !important
+
+    &_parent:hover &_sub
+      height: initial
+      z-index: 999
+      min-width: 11.5rem
+      box-shadow: 1rem 1rem 2rem rgba($dark, 0.17)
+      -webkit-filter: drop-shadow(-15px 9px 9px rgba(52,90,64,0.17))
+      filter: drop-shadow(-15px 9px 9px rgba(52,90,64,0.17))
+
+    &_menu
+      display: flex
+
+    &_child
+      color: $dark
+      display: block
+
+    &_xs
+      display: initial
+  
